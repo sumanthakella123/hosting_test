@@ -1,0 +1,95 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model VastraSevaBooking {
+  id         Int              @id @default(autoincrement())
+  deity      String
+  date       DateTime
+  specialDay Boolean
+  amount     Float
+  firstName  String
+  lastName   String
+  email      String
+  phone      String
+  gotram     String
+  requests   String
+  status     String           @default("pending")
+  orderId    Int?
+  order      VastraSevaOrder? @relation(fields: [orderId], references: [id])
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+}
+
+model VastraSevaOrder {
+  id          Int                 @id @default(autoincrement())
+  totalAmount Float
+  status      String              @default("pending")
+  bookings    VastraSevaBooking[] @relation(fields: [], references: [])
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+}
+
+model AI_Booking {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String
+  pujaName  String
+  createdAt DateTime @default(now())
+}
+
+model SevaBooking {
+  id                 Int        @id @default(autoincrement())
+  sevaType           String
+  poojaDetails       String?
+  date               DateTime
+  amount             Float
+  firstName          String
+  lastName           String
+  email              String
+  phone              String
+  gotram             String?
+  requests           String?
+  location           String
+  priestPreference   String
+  muhuratRequired    Boolean
+  namesAndNakshatras String?
+  serviceDate        DateTime
+  timeWindow         String?
+  venueAddress       String?
+  status             String     @default("pending")
+  orderId            Int?
+  order              SevaOrder? @relation(fields: [orderId], references: [id])
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+}
+
+model SevaOrder {
+  id          Int           @id @default(autoincrement())
+  totalAmount Float
+  status      String        @default("pending")
+  bookings    SevaBooking[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model SpecialDate {
+  id           Int      @id @default(autoincrement())
+  date         DateTime @unique
+  festivalName String?
+  price        Float    @default(100.00)  // Adding price field with default $100
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Manager {
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  password String
+}
