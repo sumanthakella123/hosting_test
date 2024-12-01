@@ -10,7 +10,7 @@ export interface BookingDetails {
     requests?: string;
     location: string;
     priestPreference: string;
-    muhuratRequired: string;
+    muhuratRequired: boolean;
     namesAndNakshatras?: string;
     serviceDate: string;
     timeWindow?: string;

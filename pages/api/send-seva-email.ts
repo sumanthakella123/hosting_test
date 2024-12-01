@@ -36,7 +36,7 @@ export default async function handler(
         requests: bookingDetails.requests ?? null,
         location: bookingDetails.location,
         priestPreference: bookingDetails.priestPreference,
-        muhuratRequired: bookingDetails.muhuratRequired === 'Yes',
+        muhuratRequired: bookingDetails.muhuratRequired === true,
         namesAndNakshatras: bookingDetails.namesAndNakshatras ?? null,
         serviceDate: new Date(bookingDetails.serviceDate),
         timeWindow: bookingDetails.timeWindow ?? null,
