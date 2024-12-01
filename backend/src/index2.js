@@ -15,10 +15,6 @@ const { twiml: { VoiceResponse } } = pkg;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Configuration
-const ELEVEN_LABS_API_KEY = 'sk_973d96eaba952c7324ff728109a19bfe1dc45e81d0d3e20c';
-const OPENAI_API_KEY = 'sk-proj-7svNJygbiYzL8Kqr1qUkT3BlbkFJqDPe8H1gbOSOIXI2xfDY';
-const MANAGER_PHONE = '5189410761';
 
 const app = express();
 const port = 5000;
