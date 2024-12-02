@@ -37,7 +37,8 @@
     "sqlite3": "^5.1.7",
     "square": "^38.2.0",
     "styled-components": "^6.1.13",
-    "tailwind": "^4.0.0"
+    "tailwind": "^4.0.0",
+    "vercel": "^39.1.2"
   },
   "devDependencies": {
     "@types/node": "^20",
