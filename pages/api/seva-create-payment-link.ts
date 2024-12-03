@@ -5,7 +5,7 @@ import prisma from '../../utils/prisma';
 
 const squareClient = new Client({
   environment: process.env.NODE_ENV === 'production' 
-    ? Environment.Production 
+    ? Environment.Sandbox 
     : Environment.Sandbox,
   accessToken: process.env.SQUARE_ACCESS_TOKEN,
 });

@@ -1,7 +1,9 @@
 // scripts/createManager.ts
 
 // Adjust the require statement to access the default export
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const prisma = require('../utils/prisma').default;
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const bcrypt = require('bcryptjs');
 
 async function main() {
