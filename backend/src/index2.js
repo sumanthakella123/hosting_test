@@ -2,7 +2,6 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import session from 'express-session';
 import axios from 'axios';
-import { promises as fs } from 'fs';
 import { createReadStream, existsSync, mkdirSync, writeFileSync, unlinkSync } from 'fs';
 import { join } from 'path';
 import { fileURLToPath } from 'url';

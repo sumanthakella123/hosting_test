@@ -21,18 +21,18 @@ model VastraSevaBooking {
   requests   String
   status     String           @default("pending")
   orderId    Int?
-  order      VastraSevaOrder? @relation(fields: [orderId], references: [id])
   createdAt  DateTime         @default(now())
   updatedAt  DateTime         @updatedAt
+  order      VastraSevaOrder? @relation(fields: [orderId], references: [id])
 }
 
 model VastraSevaOrder {
   id          Int                 @id @default(autoincrement())
   totalAmount Float
   status      String              @default("pending")
-  bookings    VastraSevaBooking[] @relation(fields: [], references: [])
   createdAt   DateTime            @default(now())
   updatedAt   DateTime            @updatedAt
+  bookings    VastraSevaBooking[]
 }
 
 model AI_Booking {
@@ -65,25 +65,25 @@ model SevaBooking {
   venueAddress       String?
   status             String     @default("pending")
   orderId            Int?
-  order              SevaOrder? @relation(fields: [orderId], references: [id])
   createdAt          DateTime   @default(now())
   updatedAt          DateTime   @updatedAt
+  order              SevaOrder? @relation(fields: [orderId], references: [id])
 }
 
 model SevaOrder {
   id          Int           @id @default(autoincrement())
   totalAmount Float
   status      String        @default("pending")
-  bookings    SevaBooking[]
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
+  bookings    SevaBooking[]
 }
 
 model SpecialDate {
   id           Int      @id @default(autoincrement())
   date         DateTime @unique
   festivalName String?
-  price        Float    @default(100.00)  // Adding price field with default $100
+  price        Float    @default(100.00)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 }
